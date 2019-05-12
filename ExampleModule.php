@@ -9,6 +9,7 @@
 namespace Module\ExampleModule;
 
 use Module\Module;
+use Controllers\Panel;
 
 class AntiRobotModule extends Module {
 
@@ -30,7 +31,7 @@ class AntiRobotModule extends Module {
 
     private function routes() {
         $data = array(
-            array("/example", "ExampleModule\Controllers\ExamplePage::render")
+            array("/example", "ExampleModule\Controllers\ExamplePage::render", ["engine" => Panel::getEngine()], "GET")
         );
         $this->_registerRoutes($data);
 
